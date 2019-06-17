@@ -1,0 +1,39 @@
+<h1>Personaje <small>nombre</small></h1>
+<hr>
+<div class="row">
+  <div class="col text-right">
+    <button class="btn btn-outline-danger" [routerLink]="[ '/heroes']"><i class="fa fa-arrow-left"></i>
+      Regresar</button>
+  </div>
+</div>
+
+<div class="row animated fadeIn faster">
+  <div class="col">
+    <form>
+      <div class="form-froup">
+        <label>Firebase ID</label>
+        <input type="text" class="form-control" placeholder="Firebase ID" disabled>
+        <small class="form-text text-muted">Este campo es autogenerado</small>
+      </div>
+      <div class="form-froup">
+        <label>Nombre</label>
+        <input type="text" class="form-control" placeholder="Nombre del personaje" required>
+      </div>
+      <div class="form-froup">
+        <label>Descripción</label>
+        <input type="text" class="form-control" placeholder="Descripción">
+      </div>
+      <div class="form-froup">
+        <label>Estado</label>
+        <br>
+        <button *ngIf="expression" class="btn btn-outline-success w-50"><i class="fa fa-unlock"></i> Habilitado</button>
+        <button class="btn btn-outline-danger w-50"><i class="fa fa-lock"></i> Habilitado</button>
+      </div>
+
+      <hr>
+      <div class="form-group texte-center">
+        <button type="submit" class="btn btn-primary w-25"><i class="fa fa-save"></i> Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>
