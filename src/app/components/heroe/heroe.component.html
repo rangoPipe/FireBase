@@ -9,25 +9,27 @@
 
 <div class="row animated fadeIn faster">
   <div class="col">
-    <form>
+    <form (ngSubmit)="Guardar(form)" #form="ngForm" >
       <div class="form-froup">
         <label>Firebase ID</label>
-        <input type="text" class="form-control" placeholder="Firebase ID" disabled>
+        <input type="text" class="form-control" placeholder="Firebase ID" disabled [(ngModel)]="personaje.id" name="id">
         <small class="form-text text-muted">Este campo es autogenerado</small>
       </div>
       <div class="form-froup">
         <label>Nombre</label>
-        <input type="text" class="form-control" placeholder="Nombre del personaje" required>
+        <input type="text" class="form-control" placeholder="Nombre del personaje" required [(ngModel)]="personaje.nombre" name="nombre">
       </div>
       <div class="form-froup">
         <label>Descripción</label>
-        <input type="text" class="form-control" placeholder="Descripción">
+        <input type="text" class="form-control" placeholder="Descripción" [(ngModel)]="personaje.descripcion" name="descripcion">
       </div>
       <div class="form-froup">
         <label>Estado</label>
         <br>
-        <button *ngIf="expression" class="btn btn-outline-success w-50"><i class="fa fa-unlock"></i> Habilitado</button>
-        <button class="btn btn-outline-danger w-50"><i class="fa fa-lock"></i> Habilitado</button>
+        <button *ngIf="!personaje.habilitado" (click)="personaje.habilitado = true" 
+          class="btn btn-outline-success w-50"><i class="fa fa-unlock"></i> Habilitar</button>
+        <button  *ngIf="personaje.habilitado" (click)="personaje.habilitado = false" 
+          class="btn btn-outline-danger w-50"><i class="fa fa-lock"></i> Inhabilitar</button>
       </div>
 
       <hr>
