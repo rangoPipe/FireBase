@@ -21,8 +21,18 @@ export class HeroeComponent implements OnInit {
   Guardar(form:NgForm) {
     if(form.invalid) return;
     console.log(this.personaje); 
-    
+
+    if(this.personaje.id) this.Actualizar();
+    else this.Nuevo();
+  }
+
+  Nuevo() {
     this.personajeService.CrearPersonaje(this.personaje)
+    .subscribe(res => console.log(res));
+  }
+
+  Actualizar() {    
+    this.personajeService.ActualizarPersonaje(this.personaje)
     .subscribe(res => console.log(res));
   }
 

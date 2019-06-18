@@ -19,4 +19,13 @@ export class PersonajeService {
       return personaje;
     }));
   }
+
+  ActualizarPersonaje (personaje:PersonajeModel) {
+
+    const temp = {
+      ...personaje
+    };
+    delete temp.id;
+    return this.http.put(`${this.url}/personajes/${personaje.id}.json`,temp);
+  }
 }
