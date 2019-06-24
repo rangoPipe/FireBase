@@ -17,6 +17,16 @@
       </tr>
     </thead>
     <tbody>
+      <tr *ngFor="let personaje of personajes; let i = index">
+        <td>{{ i + 1  }}</td>
+        <td>{{ personaje.nombre }}</td>
+        <td>{{ personaje.descripcion }}</td>
+        <td>
+            <label *ngIf="personaje.habilitado" class="badge badge-success"> Habilitado</label>
+            <label *ngIf="!personaje.habilitado" class="badge badge-danger"> Inhabilitado</label>
+        </td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
 </div>

@@ -12,20 +12,40 @@ export class PersonajeService {
 
   constructor( private http: HttpClient) { }
 
-  CrearPersonaje (personaje:PersonajeModel) {
+  CrearPersonaje(personaje: PersonajeModel) {
     return this.http.post(`${this.url}/personajes.json`, personaje)
-    .pipe( map( (resp:any) => {
+    .pipe( map( (resp: any) => {
       personaje.id = resp.name;
       return personaje;
     }));
   }
 
-  ActualizarPersonaje (personaje:PersonajeModel) {
+  ActualizarPersonaje(personaje: PersonajeModel) {
 
     const temp = {
       ...personaje
     };
     delete temp.id;
     return this.http.put(`${this.url}/personajes/${personaje.id}.json`,temp);
+  }
+
+  GetAllPersonajes( ) {
+    return this.http.get(`${this.url}/personajes.json`)
+    .pipe(
+      map( this.crearArreglo)
+    );
+  }
+
+  private crearArreglo( personajeObject: object) {
+    const personajes: PersonajeModel[] = [];
+
+    if ( personajeObject === null) return [];
+
+    Object.keys(personajeObject).forEach( k => {
+      const personaje: PersonajeModel = personajeObject[k];
+      personaje.id = k;
+      personajes.push(personaje);
+    });
+    return personajes;
   }
 }
