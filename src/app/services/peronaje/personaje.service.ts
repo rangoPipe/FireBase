@@ -40,6 +40,12 @@ export class PersonajeService {
     );
   }
 
+  BorrarPersonaje(id: string) {
+    return this.http.delete(`${this.url}/personajes/${id}.json`);
+  }
+
+
+
   private crearArreglo( personajeObject: object) {
     const personajes: PersonajeModel[] = [];
 
