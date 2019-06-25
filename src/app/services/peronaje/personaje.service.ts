@@ -28,6 +28,10 @@ export class PersonajeService {
     delete temp.id;
     return this.http.put(`${this.url}/personajes/${personaje.id}.json`,temp);
   }
+  
+  GetPersonaje(id: string) {
+    return this.http.get(`${this.url}/personajes/${id}.json`);
+  }
 
   GetAllPersonajes( ) {
     return this.http.get(`${this.url}/personajes.json`)

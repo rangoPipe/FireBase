@@ -5,6 +5,7 @@ import { PersonajeService } from 'src/app/services/peronaje/personaje.service';
 
 import Swal, { SweetAlertType, SweetAlertArrayOptions, SweetAlertOptions } from 'sweetalert2';
 import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -16,9 +17,17 @@ export class HeroeComponent implements OnInit {
 
   personaje:PersonajeModel = new PersonajeModel();
 
-  constructor( private personajeService: PersonajeService) { }
+  constructor( private personajeService: PersonajeService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id'); 
+    if(id !== 'nuevo'){
+      this.personajeService.GetPersonaje(id)
+        .subscribe((data: PersonajeModel) => {
+          this.personaje = data;
+          this.personaje.id = id;
+        });
+    }
   }
 
  

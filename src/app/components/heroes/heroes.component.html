@@ -25,7 +25,15 @@
             <label *ngIf="personaje.habilitado" class="badge badge-success"> Habilitado</label>
             <label *ngIf="!personaje.habilitado" class="badge badge-danger"> Inhabilitado</label>
         </td>
-        <td></td>
+        <td>
+          <button class="btn btn-info mr-1" [routerLink]="['/heroe', personaje.id]" >
+            <i class="fa fa-pen"></i>
+          </button>
+
+          <button class="btn btn-danger mr-1">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
