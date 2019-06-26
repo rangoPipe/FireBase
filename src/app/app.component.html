@@ -1,5 +1,7 @@
+<ul>
+  <li class="text" *ngFor="let mensaje of mensajes | async">
+    {{mensaje.texto}}
+  </li>
+</ul>
 
-<div class="container main-container">
-  <router-outlet>
-  </router-outlet>
-</div>
+<router-outlet></router-outlet>
