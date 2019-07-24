@@ -35,4 +35,7 @@ export class ChatComponent implements OnInit {
     this.elemento = document.getElementById('app-mensajes');
   }
 
+  ngAfterViewChecked() {  
+    this.elemento.scrollTop = this.elemento.scrollHeight; 
+}
 }

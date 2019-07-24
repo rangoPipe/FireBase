@@ -9,7 +9,7 @@ export const environment = {
     authDomain: "firechat-a15aa.firebaseapp.com",
     databaseURL: "https://firechat-a15aa.firebaseio.com",
     projectId: "firechat-a15aa",
-    storageBucket: "",
+    storageBucket: "firechat-a15aa.appspot.com",
     messagingSenderId: "779472578174",
     appId: "1:779472578174:web:0d36643c09ab8388"
   }

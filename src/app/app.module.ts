@@ -12,6 +12,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ChatComponent } from './components/chat/chat.component';
 import { FormsModule } from '@angular/forms';
 import { ChatService } from './service/chat.service';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -19,7 +20,8 @@ import { ChatService } from './service/chat.service';
 @NgModule({
   declarations: [
     AppComponent,
-    ChatComponent
+    ChatComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
